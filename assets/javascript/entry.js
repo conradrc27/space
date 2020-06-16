@@ -1,1 +1,1 @@
-alert("hola a todos");
+import '../css/app.scss';
