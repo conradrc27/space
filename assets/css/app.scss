@@ -101,6 +101,21 @@ figure {
   }
 }
 
+.slider{
+    header{
+        background-color: $blue;
+        color: $white;
+        padding: $big-padding;
+        transform: translateY(30px);
+        width: 90%;
+        box-sizing: border-box;
+        margin: 0 auto;
+        h2{
+            margin:0px
+        }
+    }
+}
+
 .mission {
     align-items: center; //alineado vertical
   .container {
@@ -150,6 +165,15 @@ figure {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-areas: "title title title image image image image image image";
+  }
+
+  .slider{
+      align-items: center;
+      header{
+          transform: translateX(110px);
+          width: 100%;
+          min-height: 350px;
+      }
   }
 
   .social{
