@@ -13,7 +13,7 @@
     justify-content: center;
 }
 
-@mixin absolute-cover{
+@mixin absolute-cover{ //usar toda la pantalla
     @include full;
     position: absolute;
     left: 0;

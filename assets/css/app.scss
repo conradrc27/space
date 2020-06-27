@@ -1,7 +1,8 @@
 @import './modules/_variables.scss';
+@import './modules/mixins.scss';
 
 body{
-
+    margin: 0px;
 }
 
 img{
@@ -11,19 +12,20 @@ img{
 figure{
     position: relative;
     max-height: 100%;
-    margin: 0px;
+    margin: 10px;
     figcaption{
         padding: $large-padding;
         font-weight: bold;
         text-transform: uppercase;
-        font-size: 1.7em;
+        letter-spacing: 0.5px;
+        font-size: 1.6em;
         position: absolute;
         width: auto;
         bottom: 0px;
         left: 10px;
         z-index: 10;
         text-align: center;
-        color: rgba($blue, 0.7);
+        color: rgba($blue, 0.8);
     }
     img{
     }
@@ -32,7 +34,7 @@ figure{
 .btn{
     padding: $large-padding;
     position: relative;
-    color:$blue;
+    color:$black;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -58,25 +60,45 @@ figure{
     grid-template-columns: repeat(12,1fr);
 }
 
-.main-text{
-    grid-area: title;
-}
-
-.main-image{
-    grid-area: image;
-}
-
 .grid-main-area{
     display: grid;
     grid-template-columns: repeat(9,1fr);
+    margin-top: $big-margin-top;
     grid-template-areas: 
     "title title title title title title title title title"
     "image image image image image image image image image";
+    .text{
+        grid-area: title;
+        font-size: 1em;
+        font-weight: 200;
+        line-height:1.5em; //espacio saltos de linea
+        h1{
+            font-weight: inherit; //toma lo de el padre
+            font-size: $big;
+            letter-spacing: 0.3em;
+            line-height: 1.5em;
+            
+        }
+    }
+    .image{
+        grid-area: image;
+    }
+
 }
 
 .container{
     grid-column: 2 / 12;
     padding: $big-padding;
+}
+
+.cover{
+    @include absolute-cover;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    &.parallax{
+        background-image: url(../../images/5.jpg);
+    }
 }
 
 @media (min-width: 960px){
