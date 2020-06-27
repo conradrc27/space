@@ -102,6 +102,11 @@ figure {
 }
 
 .slider{
+    .image{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
     header{
         background-color: $blue;
         color: $white;
@@ -110,6 +115,8 @@ figure {
         width: 90%;
         box-sizing: border-box;
         margin: 0 auto;
+        z-index: 10;
+        position: relative;
         h2{
             margin:0px
         }
@@ -130,6 +137,22 @@ figure {
         }
     }
 }
+
+#slider-text-content{
+    transition: all 0.6s ease-out;
+    &.hide{
+        opacity: 0;
+        transform: translateX(200px);
+    }
+}
+
+#slider-image{
+    transition: all 0.6s ease-out;
+    &.hide{
+        opacity: 0;
+    }
+}
+
 
 .mission {
     align-items: center; //alineado vertical
