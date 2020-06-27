@@ -102,6 +102,23 @@ figure {
 }
 
 .slider{
+    .controls{
+        text-align: right;
+        margin-bottom: 10px;
+        padding-right: 3em;
+        .right-arrow,.left-arrow{
+            height: 40px;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+            &:hover{
+                opacity: 0.2;
+            }
+        }
+        .right-arrow{
+            margin-right: 1.5em;
+            transform: rotate(180deg);
+        }
+    }
     .image{
         min-height: 100vh;
         display: flex;
