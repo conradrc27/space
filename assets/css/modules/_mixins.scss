@@ -1,21 +1,49 @@
-@mixin full{
-    width: 100%;
-    height: 100%;
+@mixin full {
+  width: 100%;
+  height: 100%;
 }
 
-@mixin text-center{
-    text-align: center;
+@mixin text-center {
+  text-align: center;
 }
 
-@mixin center-vertical-horizontal{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@mixin center-vertical-horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@mixin absolute-cover{ //usar toda la pantalla
-    @include full;
-    position: absolute;
-    left: 0;
-    right: 0;
+@mixin absolute-cover {
+  //usar toda la pantalla
+  @include full;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+@mixin caption {
+  padding: $large-padding;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 1.6em;
+  position: absolute;
+  width: auto;
+  bottom: 0px;
+  left: 10px;
+  z-index: 10;
+  text-align: center;
+  color: rgba($blue, 0.8);
+}
+
+@mixin main-text {
+  font-weight: 200;
+  font-size: 1.2em;
+  line-height: 1.5em; //espacio saltos de linea
+  h1 {
+    font-weight: inherit; //toma lo de el padre
+    font-size: $big;
+    letter-spacing: 0.3em;
+    line-height: 1.5em;
+  }
 }

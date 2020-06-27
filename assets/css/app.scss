@@ -1,114 +1,165 @@
-@import './modules/_variables.scss';
-@import './modules/mixins.scss';
+@import "./modules/_variables.scss";
+@import "./modules/mixins.scss";
 
-body{
-    margin: 0px;
+body {
+  margin: 0px;
 }
 
-img{
-    max-width: 100%;
+img {
+  max-width: 100%;
 }
 
-figure{
-    position: relative;
-    max-height: 100%;
-    margin: 10px;
-    figcaption{
-        padding: $large-padding;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 1.6em;
-        position: absolute;
-        width: auto;
-        bottom: 0px;
-        left: 10px;
-        z-index: 10;
-        text-align: center;
-        color: rgba($blue, 0.8);
-    }
-    img{
-    }
+figure {
+  position: relative;
+  max-height: 100%;
+  margin: 10px;
+  figcaption {
+    @include caption;
+  }
+  img {
+  }
 }
 
-.btn{
-    padding: $large-padding;
-    position: relative;
-    color:$black;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    box-sizing: border-box;
-    &:before{
-        content:'';
-        position: absolute;
-        width: 100%;
-        left:0px;
-        bottom: 0px;
-        height: 45%;
-        z-index: -1;
-        background-color: $orange;
-        transition: all 0.15s ease-out;
-    }
-    &:hover::before{
-        height: 100%
-    }
+.full-height {
+  min-height: 100vh;
 }
 
-.grid{
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
+.btn {
+  padding: $large-padding;
+  position: relative;
+  color: $black;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: 0px;
+    height: 45%;
+    z-index: -1;
+    background-color: $orange;
+    transition: all 0.15s ease-out;
+  }
+  &:hover::before {
+    height: 100%;
+  }
 }
 
-.grid-main-area{
-    margin-bottom: $big-margin-top;
-    display: grid;
-    grid-template-columns: repeat(9,1fr);
-    margin-top: $big-margin-top;
-    grid-template-areas: 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.grid-main-area {
+  margin-bottom: $big-margin-top;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  margin-top: $big-margin-top;
+  grid-template-areas:
     "title title title title title title title title title"
     "image image image image image image image image image";
-    .text{
-        grid-area: title;
-        font-size: 1em;
-        font-weight: 200;
-        line-height:1.5em; //espacio saltos de linea
-        h1{
-            font-weight: inherit; //toma lo de el padre
-            font-size: $big;
-            letter-spacing: 0.3em;
-            line-height: 1.5em;
-            
+  .text {
+    @include main-text;
+    grid-area: title;
+  }
+  .image {
+    grid-area: image;
+  }
+}
+
+.container {
+  grid-column: 2 / 12;
+  padding: $big-padding;
+}
+
+.cover {
+  @include absolute-cover;
+  min-height: 500px;
+  background-size: cover;
+  background-position: center;
+  &.parallax {
+    background-attachment: fixed;
+    background-image: url(../../images/11.jpg);
+    p {
+      @include caption;
+      background-color: rgba($blue, 0.7);
+      display: block;
+      color: rgba(200, 200, 250, 0.7);
+      width: 100%;
+      box-sizing: border-box;
+      left: 0px;
+      text-align: right;
+      span {
+        display: block;
+        font-size: 0.5em;
+        font-weight: 15px;
+      }
+    }
+  }
+}
+
+.mission {
+    align-items: center; //alineado vertical
+  .container {
+    @include main-text;
+    font-size: 1.1em;
+    figure{
+        float: right;
+        margin-left: 35px;
+    }
+    p{
+        line-height: 2em;
+        &:nth-of-type(1){
+            margin-bottom: 3em;
+            position: relative;
+            &::after{
+                content:'';
+                background-color: $blue;
+                position: absolute;
+                bottom: -1.5;
+                height: 6px;
+                width: 80%;
+                margin-top: 3em;
+                z-index: -1;
+            }
         }
     }
-    .image{
-        grid-area: image;
+  }
+}
+
+.social{
+    margin-top: $big-margin-top;
+    margin-bottom: $big-margin-top;
+    @include text-center;
+    p.title{
+        font-weight: 200;
+        font-size: 2.5em;
     }
-
-}
-
-.container{
-    grid-column: 2 / 12;
-    padding: $big-padding;
-}
-
-.cover{
-    @include absolute-cover;
-    
-    min-height: 500px;
-    background-size: cover;
-    background-position: center;
-    &.parallax{
-        background-attachment: fixed;
-        background-image: url(../../images/11.jpg);
+    a{
+        display: block;
+        max-width: 150px;
+        margin: 1em auto;
     }
 }
 
-@media (min-width: 960px){
-    .grid-main-area{
+@media (min-width: 960px) {
+  .grid-main-area {
     display: grid;
-    grid-template-columns: repeat(9,1fr);
-    grid-template-areas: 
-    "title title title image image image image image image";
-}
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: "title title title image image image image image image";
+  }
+
+  .social{
+      a{
+          display: inline-block;
+          margin-top: 0px;
+          margin-right: 100px;
+          &:last-of-type{ //ultimo elemento
+              margin-right: 0px;
+          }
+      }
+  }
 }
