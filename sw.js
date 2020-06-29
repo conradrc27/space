@@ -1,7 +1,6 @@
 const CACHE_NAME = "OFFICE_CACHE-v2";
 
 self.addEventListener("install", function () {
-
   caches.open(CACHE_NAME).then(function (cache) {
     cache.addAll(['/index.html', '/dist/javascript/bundle.js']);
   })
